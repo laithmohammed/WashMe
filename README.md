@@ -1,5 +1,5 @@
 # WashMe
-Fikracamps Filnal Project
+Fikracamps Final Project
 
 Make new folder and open it CMD
 ```
