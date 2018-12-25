@@ -8,7 +8,11 @@ cd WashMe
 ```
 Make your update and then use this commands
 ```
-git add .
-git commit -m "YOUR NAME - FILES NAMES - DESCRIPTION"
+git add <FILES NAMES>
+git commit -m "<YOUR NAME> - <FILES NAMES> - <DESCRIPTION>"
 git push
+```
+before you start again use this command to get last update for project
+```
+
 ```
