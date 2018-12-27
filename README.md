@@ -16,3 +16,7 @@ before you start again use this command to get last update for project
 ```
 git pull
 ```
+work on your branch use this command
+```
+git checkout <BRANCH NAME>
+```
