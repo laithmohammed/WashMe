@@ -6,6 +6,10 @@ Make new folder and open it CMD
 git clone https://github.com/laithmohammedsaker/WashMe.git
 cd WashMe
 ```
+change your git to your branch
+```
+git checkout <BRANCH NAME>
+```
 Make your update and then use this commands
 ```
 git add <FILES NAMES>
