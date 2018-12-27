@@ -14,5 +14,5 @@ git push
 ```
 before you start again use this command to get last update for project
 ```
-
+git pull
 ```
