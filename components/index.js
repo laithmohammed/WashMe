@@ -8,7 +8,11 @@ let Cover     = Styled.img `width:80%;`;
 let LetGet    = Styled.span `font-family: 'Signika', sans-serif;font-size:2em;`;
 let LetDes    = Styled.p `font-family: 'Noto Sans', sans-serif;font-size:1.4;color:#6e6e70;padding:0 1.6em`;
 let LoginBut  = Styled.div `width:80%;max-width:20em;text-align:center;padding:0.6em 0em;background:linear-gradient(#25aae1,#0f75bc);
+<<<<<<< HEAD
                             font-family: 'Noto Sans', sans-serif;border-radius:1.2em;cursor:pointer;font-weight:bold;color:white;`;
+=======
+                            font-family: 'Noto Sans', sans-serif;border-radius:1.2em;color:black;cursor:pointer;font-weight:bold;`;
+>>>>>>> c02f4142ac98d474238a7f4bfa8425805e59dd20
 let CreateBut = Styled.div `width:80%;max-width:20em;text-align:center;padding:0.6em 0em;background-color:white;font-family: 'Noto Sans', sans-serif;
                             border-radius:1.2em;cursor:pointer;border:1px solid black;margin-top:1.4em;font-weight:bold;`;
 let Link      = Styled.a `text-decoration:none;`;
