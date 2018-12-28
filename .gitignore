@@ -1,6 +1,7 @@
-.git
-node_modules
-package-lock.json
-UI
 .cache
+.git
 dist
+node_modules
+UI
+package-lock.json
+README.md
