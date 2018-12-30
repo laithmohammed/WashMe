@@ -1,0 +1,32 @@
+[
+    {
+        "orderNum"        : 465465564,
+        "orderDate"       : 1546200729281,
+        "loundryId"       : 546546545,
+        "pickupLoc"       : {
+            "latitude"  : 33.2627968,
+            "longitude" : 44.48256
+        },
+        "pickupAddress"   : "new baghdad, main street, near alsadik school",
+        "pickupDate"      : "2018-12-31",
+        "pickupTime"      : "02:00 pm - 04:00 pm",
+        "deliveryLoc"     : {
+            "latitude"  : 33.2627968,
+            "longitude" : 44.48256
+        },
+        "deliveryAddress" : "new baghdad, main street, near alsadik school",
+        "prderCoin"       : "IQD",
+        "deliveryDate"    : "2019-01-05",
+        "deliveryTime"    : "07:00 am - 09:00 am",
+        "orderType"       : "Wash and Iron",
+        "orderData"       : [
+            { "itemID" : 454454222, "itemName" : "shirt",            "itemNum" : 5, "pricePerItem" : "4000"  },
+            { "itemID" : 798276545, "itemName" : "hand towel",       "itemNum" : 2, "pricePerItem" : "2500"  },
+            { "itemID" : 823184213, "itemName" : "single bed sheet", "itemNum" : 1, "pricePerItem" : "5000"  },
+            { "itemID" : 225484536, "itemName" : "dress",            "itemNum" : 1, "pricePerItem" : "7000"  },
+            { "itemID" : 987954564, "itemName" : "jacket",           "itemNum" : 1, "pricePerItem" : "10000" }
+        ],
+        "orderClientNote"  : "cleaning my red dress just with water only, don't using any type of soap",
+        "orderLaundryNote" : "order pickup by osama:07x xxx xxxx"
+    }
+]
