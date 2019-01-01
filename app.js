@@ -6,6 +6,7 @@ import Indexpage from './components/index';
 import Login from './components/login';
 import Register from './components/register';
 import Startup from './components/startup';
+import Scheduler from './components/scheduler';
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
           <Route path='/startup' component={Startup}/>
+          <Route path='/scheduler' component={Scheduler}/>
         </React.Fragment>
       </Router>
     );
