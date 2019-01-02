@@ -1,0 +1,26 @@
+.Nomal {
+    background-color: #FFF;
+    color: #000;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    flex: 1;
+    height: 100%;
+    font-family: 'Signika', sans-serif;
+    font-size:1.2em;
+  }
+  .NomalButtonActive {
+    background-color: #FFF;
+    color: #000;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    flex: 1;
+    height: 100%;
+    border-bottom: 2px solid #0091EA;
+    transition: 0.3s;
+    font-family: 'Signika', sans-serif;
+    font-size:1.2em;
+  }
