@@ -2,7 +2,7 @@ import React from 'react';
 import Styled from 'styled-components';
 import 'babel-polyfill';
 
-import BodyBackground from './background'
+import BodyBackground from './background';
 
 let ImgLogo   = Styled.img `height:10em;position:absolute;top:-6.8em;left:50%;transform:translate(-50%);cursor:pointer;`;
 let Container = Styled.div `top:50%;left:50%;transform:translate(-50%,-50%);position:absolute;width:90%;max-width:30em;`

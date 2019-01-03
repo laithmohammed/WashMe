@@ -1,7 +1,7 @@
 import React from 'react';
-import Styled from 'styled-components'
+import Styled from 'styled-components';
 
-import BodyBackground from './background'
+import BodyBackground from './background';
 
 let Container = Styled.div `position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:40em;`;
 let Cover     = Styled.img `width:80%;`;
