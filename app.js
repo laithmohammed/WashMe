@@ -6,6 +6,9 @@ import Indexpage from './components/index';
 import Login from './components/login';
 import Register from './components/register';
 import Startup from './components/startup';
+import Selection from './components/selection';
+import Track from './components/track';
+import History from './components/history';
 
 class App extends React.Component {
   render() {
@@ -16,6 +19,12 @@ class App extends React.Component {
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
           <Route path='/startup' component={Startup}/>
+          <Route path='/selection' component={Selection}/>
+          <Route path='/track' component={Track}/>
+          <Route path='/history' component={History}/>
+
+
+
         </React.Fragment>
       </Router>
     );
