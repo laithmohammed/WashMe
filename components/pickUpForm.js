@@ -19,19 +19,34 @@ class PickUp extends React.Component {
         super(props);
         this.state = {
             list: [],
-            bar: [0.5, 0.5, 0.5, 0.5,]
+            bar: [0.5, 1, 0.5, 0.5,]
         }
     }
     opacit(loc) {
-        if (loc == 'location')
+        if (loc == 'location') {
             this.setState({
                 bar: [1, 0.5, 0.5, 0.5]
             })
-            if (loc == 'payment')
+            
+        }
+        if (loc == 'payment') {
             this.setState({
                 bar: [0.5, 1, 0.5, 0.5]
             })
+        }
+        if (loc == 'datetime1') {
+            this.setState({
+                bar: [0.5, 0.5, 1, 0.5]
+            })
+        }
+        if (loc == 'true') {
+            this.setState({
+                bar: [0.5, 0.5, 0.5, 1]
+            })
+        }
+
     }
+
     render() {
         return (
             <React.Fragment>
@@ -45,10 +60,10 @@ class PickUp extends React.Component {
                     </Header>
                     <ProgressLine >
                         <center style={{ display: 'flex', justifyContent: 'space-Between', height: 44, marginRight: 41, marginLeft: 41, paddingTop: 5 }}>
-                            <Img style={{ opacity: this.state.bar[0] }} /*onClick={this.opacit('location')} */src={require('../assets/icons/location.svg')} alt='location' />
-                            <Img style={{ opacity: this.state.bar[1] }} /*onClick={this.opacit('payment')}*/ src={require('../assets/icons/payment.svg')} alt='payment' />
-                            <Img style={{ opacity: this.state.bar[2] }} /*onClick={this.opacit('datetime1')}*/ src={require('../assets/icons/datetime1.svg')} alt='datetime1' />
-                            <Img style={{ opacity: this.state.bar[3] }} /*onClick={this.opacit('true')} */src={require('../assets/icons/true.svg')} alt='true' />
+                            <Img style={{ opacity: this.state.bar[0] }} onClick={() => this.opacit('location')} src={require('../assets/icons/location.svg')} alt='location' />
+                            <Img style={{ opacity: this.state.bar[1] }} onClick={() => this.opacit('payment')} src={require('../assets/icons/payment.svg')} alt='payment' />
+                            <Img style={{ opacity: this.state.bar[2] }} onClick={() => this.opacit('datetime1')} src={require('../assets/icons/datetime1.svg')} alt='datetime1' />
+                            <Img style={{ opacity: this.state.bar[3] }} onClick={() => this.opacit('true')} src={require('../assets/icons/true.svg')} alt='true' />
                         </center>
                     </ProgressLine>
                     <Footer >
