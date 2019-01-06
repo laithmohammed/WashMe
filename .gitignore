@@ -1,6 +1,2 @@
-.git
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 node_modules
-package-lock.json
-UI
-.cache
-dist
