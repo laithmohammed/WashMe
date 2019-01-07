@@ -16,13 +16,13 @@ let Form     = Styled.div `display:flex;align-items:center;justify-content:cente
 let Header   = Styled.div `display:flex;align-items:center;  align-content: flex-start;
 ;width:100%;max-width:40em;background-color:#25AAE1;height :100px;color:#25AAE1;font-size:1em;`
 let Order    =Styled.div`display: flex;flex-wrap: nowrap;  flex-direction: row; align-items: center;height :50px;;width:100%;max-width:40em; box-shadow:0px 7px 22px -10px #111;`
-let Span     = Styled.div `font-size:1em;font-family: 'Noto Sans', sans-serif; cursor:pointer; align-self: stretch; ;background:white; height: 92%; flex:1; &:hover {color: #13a892;border-width:4px;border-bottom-style:solid;} `
-let Img      = Styled.img `width:10%;height:10%;transform:translate(-40%); align-self: center;  align-content: center;margin:10px`;
-let Line     =Styled.div`border-Bottom:4px solid gray;width:25px;height:2px;align-self: center;  align-content: center;margin-right:2%`
-let Cont     =Styled.div`width:100%;max-width:35em;text-align:left;border:1px solid gray; padding:2%;flex-direction:row;display:flex`;
+let Span     = Styled.div `font-size:1em;font-family: 'Noto Sans', sans-serif; cursor:pointer;align-self: center; ;background:white; height: 92%; flex:1; &:hover {color: #13a892;border-width:4px;border-bottom-style:solid;} `
+let Img      = Styled.img `width:10%;height:10%;transform:translate(-40%); align-self: center;margin:10px`;
+let Line     =Styled.div`border-Bottom:4px solid gray;width:30px;height:2px;align-self: center;padding:2%;margin-right:2% `
+let Cont     =Styled.div`width:100%;max-width:35em;text-align:left;border:1px solid gray; padding:2%;display:flex;flex-direction:row;  justify-content: space-around;`
 let In       =Styled.div`padding:9%;margin:4%;   box-shadow:0px 7px 22px -10px #111;border-radius:0.3em;background:white;display:flex;flex-direction:column`;
 let Button   =Styled.button`width: 135px;height:35px;border-radius: 10px;border: 1px solid gray;box-shadow: 0 0px 15px rgba(0, 0, 0, 0.16);margin: 18px;padding: 10px;
-background:white;flex: 1;align-items:right;justifyContent: 'space-between';&:focus {  box-shadow: 0 0px 15px ##13a892;};cursor:pointer;`;
+background:white;flex: 1;align-items:right;&:focus {  box-shadow: 0 0px 15px ##13a892;};cursor:pointer;`;
 let Details  =Styled.div`font-size:1em;font-family: 'Noto Sans', sans-serif; align-text:right;
 ;  height: 100%; `;
 let counter=15;
@@ -33,6 +33,9 @@ class Track extends React.Component {
         list: [],
         
       }
+    }
+    details(){
+      { window.location = './detail' }
     }
     pastData(){
      { window.location = './history' }
@@ -64,12 +67,10 @@ class Track extends React.Component {
                 <Img src={require('../assets/icons/boxdelivery.svg')}/> 
                 
               </Cont>
-              <Cont>
-                <Details></Details>
-              </Cont>
+              
               <Cont>
               <Button>Cancel Order</Button>
-              <Button>View Details</Button></Cont>
+              <Button onClick={()=>this.details()}>View Details</Button></Cont>
               </In>
               
              </Form>

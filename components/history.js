@@ -29,6 +29,9 @@ class History extends React.Component {
       
     }
   }
+  details(){
+    { window.location = './detail' }
+  }
   orderData(){
     { window.location = './track' }
   }
@@ -59,7 +62,7 @@ class History extends React.Component {
               </Cont>
               <Cont>
               <Button>Cancel Order</Button>
-              <Button>View Details</Button></Cont>
+              <Button onClick={()=>this.details()}>View Details</Button></Cont>
               </In>
               </Form>
           </Container> }/>

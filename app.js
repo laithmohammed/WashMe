@@ -9,6 +9,8 @@ import Startup from './components/startup';
 import Selection from './components/selection';
 import Track from './components/track';
 import History from './components/history';
+import Detail from './components/details';
+
 
 class App extends React.Component {
   render() {
@@ -22,6 +24,7 @@ class App extends React.Component {
           <Route path='/selection' component={Selection}/>
           <Route path='/track' component={Track}/>
           <Route path='/history' component={History}/>
+          <Route path='/detail' component={Detail}/>
 
 
 
