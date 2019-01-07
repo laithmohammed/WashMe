@@ -6,7 +6,7 @@ import 'babel-polyfill';
 let Container       = Styled.div`overflow:overlay;height:100vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:60em;`;
 let NatDiv          = Styled.div`width:100%;height:auto;background-color:#fafafa; padding: 0.2em 0.2em;border-radius: 0.3em;`;
 let ContantDiv      = Styled.div`width:100%;height:auto;border-radius: 0.3em;`;
-let Titele          = Styled.div`height:2.5em;align-items: center;text-align:center;opacity: 1;justify-content: center;background: #0f75bc;border-radius: 0.3em;margin:0 0;`;
+let Titele          = Styled.div`height:2.5em;align-items: center;text-align:center;opacity: 1;justify-content: center;background: #0f75bc;border-radius: 0.3em;`;
 let ImageNat        = Styled.img`height: 100%;width:3em;max-width: 100%; max-height: 100%;vertical-align: middle; align-self: center;border-radius:0.3em;`;
 let DivRow          = Styled.div`background-color:#ffff;height: auto;flex-direction: row; flex-wrap: wrap;justify-content: space-between;; width:100%;text-align: left;border-radius:0.5em;display: flex;clear: both;margin: 0.2em 0em;`;
 let DivSide         = Styled.div`margin-left: 0.5em;float: left;width: auto;text-align: left;background-color: transparent;border-radius:0.5em;`;

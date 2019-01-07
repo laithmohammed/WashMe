@@ -8,7 +8,7 @@ import Services from './services'
 import About from './aboutus'
 import Review from './review'
 import img from './assesst/headerback.jpg';
-let Container = Styled.div`position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);  height: 100vh;width:100%;max-width:80em;`;
+let Container = Styled.div`overflow:auto;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);  height: 100vh;width:100%;max-width:60em;`;
 let Headerbackground = Styled.div`width:100%;max-width:80em;background-image: url(${img});height:250px;background-position: center;background-size: cover;background-repeat: no-repeat;`;
 let Titele = Styled.div`display: flex; height:30px;flex-direction: row;align-items: center;justify-content: space-between;opacity: 0.5;padding: 15px;background-color: #000;border-radius: 10px;`;
 let ImgMenu   = Styled.img `height:1.5em;cursor:pointer;`;

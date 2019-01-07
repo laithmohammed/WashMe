@@ -1,5 +1,23 @@
 import React, { Component } from 'react';
-import Styled from 'styled-components'
+import Styled from 'styled-components';
+import { compose, withProps } from "recompose";
+
+import {withScriptjs,withGoogleMap,GoogleMap,Marker} from "react-google-maps";
+const MyMapComponent = compose(
+    withProps({
+        googleMapURL:
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyCX1_2Dlr5a_GRbjCgwGup1EDb3jqVeOfc&v=3.exp&libraries=geometry,drawing,places",
+        loadingElement: <div style={{ height: `100%` }} />,
+        containerElement: <div style={{ height: `400px` }} />,
+        mapElement: <div style={{ height: `100%` }} />
+    }),
+    withScriptjs,
+    withGoogleMap
+)(props => (
+    <GoogleMap defaultZoom={14} defaultCenter={{ lat: 33.297541, lng: 44.438440 }}>
+        <Marker name={'Wash'}  title={'Wash and Dry Cleaning'} position={{ lat: 33.297541, lng: 44.438440 }} />
+    </GoogleMap>
+));
 let Containerg = Styled.div`justify-content:left;display: flex;height: auto;flex-direction: row; flex-wrap: wrap;box-shadow:0px 0px 10px rgba(0,0,0,0.1);border-radius:0.1em;background:white;margin-top: 0.1em;transition: 0.3s;`
 let Cover = Styled.div` width:100%;text-align: left;background-color: transparent;border-radius:0.5em;`;
 let DivText = Styled.div` width:100%;text-align: left;padding-left:1em;background-color: transparent;border-radius:0.5em;`;
@@ -12,7 +30,7 @@ class About extends Component {
         return (
             <Containerg>
                 <Cover>
-                <Imagelocation src={require('./assesst/location.png')} alt='location' />
+                <MyMapComponent key="map" />
                 </Cover>
                 <DivText>
                 <Servicestit>

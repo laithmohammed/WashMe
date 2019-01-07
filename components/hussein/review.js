@@ -51,6 +51,8 @@ class Review extends Component {
                     <br />
                     <StarRatingComponent
                         name="rate1"
+                        size={60}
+                        style={{fontSize: "3em"}}
                         starCount={5}
                         value={yourrating}
                         onStarClick={this.onStarClick.bind(this)}
@@ -64,9 +66,11 @@ class Review extends Component {
                 </Servicestit><br></br>
                     <StarRatingComponent
                         name="rate1"
+                        fontStyle='Large'
+                        fontSize='3em'
                         starCount={5}
                         value={total}
-                        editing="false"
+                        editing='false'
 
                     /><br />
                     <DivRow>
