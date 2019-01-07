@@ -10,6 +10,7 @@ import Selection from './components/selection';
 import Track from './components/track';
 import History from './components/history';
 import Detail from './components/details';
+import Dash from './provider/dashboard';
 
 
 class App extends React.Component {
@@ -25,6 +26,7 @@ class App extends React.Component {
           <Route path='/track' component={Track}/>
           <Route path='/history' component={History}/>
           <Route path='/detail' component={Detail}/>
+          <Route path='/dash' component={Dash}/>
 
 
 
