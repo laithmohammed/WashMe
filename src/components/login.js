@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
 // import 'babel-polyfill';
+import Params from './params';
 
 import BodyBackground from './background'
 
@@ -16,14 +17,18 @@ let ImgButton = Styled.img `width:5em;position:absolute;bottom:-2.5em;left:50%;t
 let TextCon   = Styled.div `width:100%;text-align:center;position:absolute;bottom:-5em;`;
 let LoginSpan = Styled.span `font-family: 'Noto Sans', sans-serif;font-size:1.2em;`;
 let LoginWord = Styled.a `font-family: 'Noto Sans', sans-serif;font-size:1.2em;font-weight:bold;padding 0px 0.5em;color:#0f75bc;text-decoration:none;`;
+let ErrorSpan = Styled.span `color:red;font-family: 'Noto Sans', sans-serif;font-size:12px;`
 
 
 class Login extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      list: []
+      error: []
     }
+  }
+  componentDidMount(){
+    if(window.location.search === '?error'){ this.setState({error : ['incorrect information, try again !!'] }) }
   }
 
   render() {
@@ -31,12 +36,15 @@ class Login extends React.Component {
       <React.Fragment>
         <BodyBackground context={
         <Container>
-          <Form action="./selection">
+          <Form action={`${Params.originServer}/login`} method='post'>
             <ImgLogo src={require('../assets/icons/washlogo.png')} alt='logo'/>
             <Span>Phone or Email</Span>
             <InputText type='text' name='user'/>
             <Span>Password</Span>
             <InputText type='password' name='password'/>
+            <div>{this.state.error.map((err,i)=>{
+              return <React.Fragment  key={i} ><ErrorSpan>* {err}</ErrorSpan><br/></React.Fragment>
+            })}</div>
             <label htmlFor='registerButton'>
               <ImgButton src={require('../assets/icons/nextarrow.svg')} alt='next arrow'/>
             </label>

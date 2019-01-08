@@ -7,6 +7,7 @@ const bcrypt  = require('bcrypt');
 const firebase= require('firebase');
 const saltRounds = 10;
 const secret  = 'chachacha14e'
+const Params  = require('./params.json');
 
 function getObjects(obj, key, val) {
     var OBJ = [];
@@ -33,7 +34,8 @@ router.post('/',(req,res)=>{
         if(valid.error){ valid.error.details.map((index)=>{return errvalid = index.message}) }
         let errpass = '';
         if(!valid.error){ errpass = "your password is not match"; }
-        res.send(errvalid + errpass)
+        // res.send(errvalid + errpass)
+        res.redirect(`${Params.originApp}/register?error`)
     }else{
         firebase.firestore().collection('wash').doc('users').get().then(doc => {
             let data = doc.data();
@@ -68,10 +70,12 @@ router.post('/',(req,res)=>{
                 firebase.firestore().collection('wash').doc('users').update(Obj);
                 const token = jwt.sign({id : Id}, secret)
                 res.cookie('X-auth-token',token);
-                console.log(token)
-                res.redirect('http://localhost:3000/startup')
+                // res.setHeader('X-auth-token',token);
+                // console.log(token)
+                res.redirect(`${Params.originApp}/startup`)
             }else{
-                res.send(error)
+                // res.send(error)
+                res.redirect(`${Params.originApp}/register?error`)
             }
         })
     }

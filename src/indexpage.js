@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
+import Index from './components/index';
+import Selection from './components/selection';
 import Params from './components/params';
 
 export default function withPermit(ComponentToProtect) {
@@ -30,9 +32,9 @@ export default function withPermit(ComponentToProtect) {
       fetch(`${Params.originServer}/checkPermit/${this.getCookie('X-auth-token')}`)
         .then(res => res.json()).then(data=>{
           if (data.authorized === "valid token") {
-            this.setState({ loading: false, redirect: false });
-          } else {
             this.setState({ loading: false, redirect: true });
+          } else {
+            this.setState({ loading: false, redirect: false });
           }
         })
         .catch(err => {
@@ -46,9 +48,9 @@ export default function withPermit(ComponentToProtect) {
       let view = <img src={require('./assets/icons/loader.svg')} alt='loader' style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'4em',height:'4em'}}/>
       if (!loading) {
         if (redirect) {
-          view = <Redirect to="/login" />
+          view = <Selection />
         } else {
-          view = <ComponentToProtect {...this.props} />
+          view = <Index />
         }
       }
       return (

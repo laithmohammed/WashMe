@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
 // import 'babel-polyfill';
+import Params from './params';
 
 import BodyBackground from './background'
 
@@ -78,7 +79,7 @@ class Login extends React.Component {
     console.log(this.state.error)
   }
   fetchData(path,dataFom,errIndex){
-    fetch(`http://localhost:5678/register/${path}/${dataFom}`)
+    fetch(`${Params.originServer}/register/${path}/${dataFom}`)
     .then(res => res.json()).then(data=>{
       if(data.valid === true){ this.setUniq(path,true);this.removeError(errIndex); }
       else{ if(this.state.error.indexOf(errIndex) === -1){this.pushError(errIndex)};this.setUniq(path,false); }
@@ -100,7 +101,7 @@ class Login extends React.Component {
       <React.Fragment>
         <BodyBackground context={
         <Container>
-          <Form action="http://localhost:5678/register/" method='POST' onSubmit={this.submitingCheck.bind(this)} id='registerForm'>
+          <Form action={`${Params.originServer}/register/`} method='POST' onSubmit={this.submitingCheck.bind(this)} id='registerForm'>
             <ImgLogo src={require('../assets/icons/washlogo.png')} alt='logo'/>
             <Span>Username</Span>
             <InputText type='text' name='username' pattern='[a-z0-9]{3,22}'

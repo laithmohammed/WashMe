@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuBar from './menu'
 //'linear-gradient(#f13844,#e1212e)','linear-gradient(#4d90fd,#4788ee)','linear-gradient(#3be081,#4bca6f)'
 const Styled = {
     Body : { position:'absolute',width:'100%',top:'0px',left:'0px',right:'0px',bottom:'0px',padding:'0px',margin:'0px' },
@@ -38,10 +39,13 @@ class BackGround extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+        <MenuBar  />
         <div style={Styled.Body}>
             <div style={Styled.Background}>{this.state.background}</div>
             {this.props.context}
         </div>
+      </React.Fragment>
     );
   }
 }
