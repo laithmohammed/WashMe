@@ -7,6 +7,7 @@ import Register from './components/register';
 import Startup from './components/startup';
 import AboutHeader from './components/hussein/Header';
 import Natification from './components/Natification/notifications'
+import Pickup from './components/pickupdata/pickup';
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class App extends React.Component {
           <Route path='/startup' component={Startup}/>
           <Route path='/About' component={AboutHeader}/>
           <Route path='/Natification' component={Natification}/>
+          <Route path='/Pickup' component={Pickup}/>
         </React.Fragment>
       </Router>
     );
