@@ -5,10 +5,10 @@ import Styled from 'styled-components'
 import Autocomplete from 'react-google-autocomplete';
 Geocode.setApiKey("AIzaSyCX1_2Dlr5a_GRbjCgwGup1EDb3jqVeOfc");
 Geocode.enableDebug();
-let ImgLogo   = Styled.img `height:10em;position:absolute;top:50%;left:80%;transform:translate(-50%);cursor:pointer;`;
-let Form  = Styled.form `width:auto;padding:3em 2em;box-shadow:0px 0px 10px rgba(0,0,0,0.3);border-radius:0.3em;background:white;`
-let InputSubmit = Styled.input `display:none;`;
-let ImgButton = Styled.img `width:5em;position:absolute;bottom:2em;left:50%;transform:translate(-50%);cursor:pointer;`;
+let ImgLogo = Styled.img`height:10em;position:absolute;top:50%;left:80%;transform:translate(-50%);cursor:pointer;`;
+let Form = Styled.form`width:auto;padding:3em 2em;box-shadow:0px 0px 10px rgba(0,0,0,0.3);border-radius:0.3em;background:white;`
+let InputSubmit = Styled.input`display:none;`;
+let ImgButton = Styled.img`width:5em;position:absolute;bottom:2em;left:50%;transform:translate(-50%,5%);cursor:pointer;`;
 let DivSide = Styled.div`float: left;width: 100%;text-align: left;background-color: transparent;border-radius:0.5em; margin-top: 0.5em;`;
 let DivRow = Styled.div`background-color:#ffff;height: auto; width:100%;text-align: left;border-radius:0.5em;display: flex;clear: both;margin: 0.2em 0em;`;
 let Span = Styled.span`font-size:1em;font-family: 'Noto Sans', sans-serif;`;
@@ -25,6 +25,9 @@ class Map extends Component {
             city: '',
             area: '',
             state: '',
+            Address1: '',
+            Address2: '',
+            Title: '',
             mapPosition: {
                 lat: this.props.center.lat,
                 lng: this.props.center.lng
@@ -47,6 +50,9 @@ class Map extends Component {
         this.onMouseoverMarker = this.onMouseoverMarker.bind(this);
         this.onMarkerDragEnd = this.onMarkerDragEnd.bind(this);
         this.onPlaceSelected = this.onPlaceSelected.bind(this);
+        this.Address1Change = this.Address1Change.bind(this);
+        this.Address2Change = this.Address2Change.bind(this);
+        this.TitleChange = this.TitleChange.bind(this);
     }
     /**
      * Get the current address from the default map position and set those values in the state
@@ -91,7 +97,7 @@ class Map extends Component {
         ) {
             return true
         } else if (this.props.center.lat === nextProps.center.lat) {
-            return false
+            return true
         }
     }
     /**
@@ -160,6 +166,15 @@ class Map extends Component {
     onInfoWindowClose(event) {
 
     };
+    Address1Change(event) {
+        this.setState({ Address1: event.target.value });
+    }
+    Address2Change(event) {
+        this.setState({ Address2: event.target.value });
+    }
+    TitleChange(event) {
+        this.setState({ Title: event.target.value });
+    }
     onMouseoverMarker(marker) {
         let x = 0
         let Xpoint = 0;
@@ -229,6 +244,14 @@ class Map extends Component {
             }
         );
     };
+    setData(e) {
+        switch (e.target.name) {
+            case 'address1': this.setState({ Address1: e.target.value }); break;
+            case 'address2': this.setState({ Address2: e.target.value }); break;
+            case 'title': this.setState({ Title: e.target.value }); break;
+            default: break;
+        }
+    }
 
     /**
      * When the user types an address in the search box
@@ -278,28 +301,28 @@ class Map extends Component {
                                     fontSize: '1.3em',
                                     borderBottom: '2px solid #13a89e',
                                     border: 'unset',
-                                    outline:'none',
+                                    outline: 'none',
                                     padding: '0px 2%',
                                     marginTop: '10px',
                                     marginBottom: '0.6em',
                                     display: 'block', fontFamily: 'Noto Sans, sans-serif',
                                     hover: 'border-bottom:2px solid #25aae1',
                                     borderBottom: '2px solid #13a89e',
-                              
+
                                 }}
                                 onPlaceSelected={this.onPlaceSelected}
                                 types={['(regions)']}
                             />
-                            <Form>  
-                            <ImgLogo src={require('../../assets/icons/washlogo.png')} alt='logo'/>   
+                            <Form>
+                                <ImgLogo src={require('../../assets/icons/washlogo.png')} alt='logo' />
                                 <Span>Address 1</Span>
-                                <InputText type='text' name='address1' value={this.state.state+'/'+this.state.city+'/'+this.state.address+"/"} />
+                                <InputText type='text' name='address1' defaultValue={this.state.Address1} onKeyUp={this.setData.bind(this)} />
                                 <Span>Address 2</Span>
-                                <InputText type='text' name='Address2' />
+                                <InputText type='text' name='Address2' defaultValue={this.state.Address2} onKeyUp={this.setData.bind(this)} />
                                 <Span>Address Title</Span>
-                                <InputText type='text' name='title' />
+                                <InputText type='text' name='title' defaultValue={this.state.Title} onKeyUp={this.setData.bind(this)} />
                                 <label htmlFor='registerButton'>
-                                <ImgButton src={require('../../assets/icons/nextarrow.svg')} alt='next arrow'/>
+                                    <ImgButton src={require('../../assets/icons/nextarrow.svg')} alt='next arrow' />
                                 </label>
                                 <InputSubmit type='submit' name='submit' id={'registerButton'} />
                             </Form>

@@ -8,6 +8,7 @@ import Startup from './components/startup';
 import AboutHeader from './components/hussein/Header';
 import Natification from './components/Natification/notifications'
 import Pickup from './components/pickupdata/pickup';
+import PickupDate from './components/datePickup/pickuptime'
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route path='/About' component={AboutHeader}/>
           <Route path='/Natification' component={Natification}/>
           <Route path='/Pickup' component={Pickup}/>
+          <Route path='/date' component={PickupDate}/>
         </React.Fragment>
       </Router>
     );
