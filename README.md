@@ -1,26 +1,15 @@
-# WashMe
-Fikracamps Final Project
-
-Make new folder and open it CMD
+## Wash app
+open cmd and type this command
 ```
-git clone https://github.com/laithmohammedsaker/WashMe.git
-cd WashMe
+npm i
 ```
-change your git to your branch
+after finish packages instellation
+type this command
 ```
-git checkout <BRANCH NAME>
+npm start
 ```
-Make your update and then use this commands
+then open another cmd at same time
+and type this command
 ```
-git add <FILES NAMES>
-git commit -m "<YOUR NAME> - <FILES NAMES> - <DESCRIPTION>"
-git push
-```
-before you start again use this command to get last update for project
-```
-git pull
-```
-work on your branch use this command
-```
-git checkout <BRANCH NAME>
+npm run server
 ```
