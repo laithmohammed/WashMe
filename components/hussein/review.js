@@ -19,7 +19,7 @@ let Divbar5 = Styled.div`width: ${Tstar1}%;background-color: #4CAF50;color: whit
 let Servicestit = Styled.text`padding: 0px 0.5em;font-family: 'Noto Sans', sans-serif;font-size:1.5em;font-weight:bold;color:#0f75bc;text-decoration:none;margin:0.8em 0.8em;`;
 let Text = Styled.text`font-family: 'Noto Sans', sans-serif;font-size:1em;font-weight:bold;color:#000;text-decoration:none;margin:0.8em 0em;`;
 let Number = Styled.text`font-family: 'Noto Sans', sans-serif;font-size:1em;font-weight:bold;color:#000;text-decoration:none;margin:0.1em 1em;`;
-let Time = Styled.span`font-family: 'Noto Sans', sans-serif;font-size:0.8em;font-weight:bold;padding: 0px 0.5em;color:#ff9800;text-decoration:none;margin:0.5em 0em;`;
+let Time = Styled.span`font-family: 'Noto Sans', sans-serif;font-size:1em;font-weight:bold;padding: 0px 0.5em;color:#ff9800;text-decoration:none;margin:0.5em 0em;`;
 class Review extends Component {
 
     constructor() {
@@ -49,6 +49,7 @@ class Review extends Component {
                         Please Inter  your Reat  {yourrating}
                     </Servicestit>
                     <br />
+                    <div style={{fontSize: 50}}>
                     <StarRatingComponent
                         name="rate1"
                         size={60}
@@ -57,6 +58,7 @@ class Review extends Component {
                         value={yourrating}
                         onStarClick={this.onStarClick.bind(this)}
                     />
+                    </div>
 
                 </Cover>
                 <DivText>
@@ -64,6 +66,7 @@ class Review extends Component {
                     <Servicestit>
                         Total User Rating
                 </Servicestit><br></br>
+                <div style={{fontSize: 50}}>
                     <StarRatingComponent
                         name="rate1"
                         fontStyle='Large'
@@ -72,7 +75,8 @@ class Review extends Component {
                         value={total}
                         editing='false'
 
-                    /><br />
+                    />
+                    </div><br/>
                     <DivRow>
                     <div>
                             <DivSide>

@@ -25,7 +25,7 @@ let Imagelocation = Styled.img`height: 15em;width: 100%;max-height: 100%;vertica
 let Servicestit = Styled.text`font-family: 'Noto Sans', sans-serif;font-size:1.8em;font-weight:bold;color:#0f75bc;text-decoration:none;margin:0.8em 0em;`;
 let Text = Styled.text`font-family: 'Noto Sans', sans-serif;font-size:1.2em;font-weight:bold;color:#000;text-decoration:none;margin:0.8em 0em;`;
 let Time = Styled.span`font-family: 'Noto Sans', sans-serif;font-size:1.2em;font-weight:bold;padding 0px 0.5em;color:#ff9800;text-decoration:none;margin:0.5em 0em;`;
-class About extends Component {
+class Aboutus extends Component {
     render() {
         return (
             <Containerg>
@@ -58,4 +58,4 @@ class About extends Component {
     }
 }
 
-export default About;
+export default Aboutus;
