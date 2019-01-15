@@ -45,3 +45,10 @@ npm run server
 - Wash App UI : @Hussein @Duha @Laith @Ahmed @Noor
 - Wash App Dashboard : @Laith
 - Wash App API : @Laith
+
+### Missing
+- account varification for new account
+- set new password UI and fuctionality for forgetten password cases
+- home page enclude UI and fuctionality
+- notification enclude UI and fuctionality
+... etc
