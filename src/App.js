@@ -8,7 +8,9 @@ import Register from './components/register';
 import Startup from './components/startup';
 import Selection from './components/selection';
 import GeoLocation from './components/location';
+import Dashboard from './components/dashboard/index';
 import Final from './components/final';
+
 class App extends Component {
   render() {
     return (
@@ -20,7 +22,8 @@ class App extends Component {
           <Route path='/startup' component={withPermit(Startup)}/>
           <Route path='/selection' component={withPermit(Selection)}/>
           <Route path='/location' component={withPermit(GeoLocation)}/>
-          <Route path='/final' component={Final}/>
+          <Route path='/dashboard' component={Dashboard}/>
+          <Route path='/final' component={withPermit(Final)}/>
         </React.Fragment>
       </Router>
     );

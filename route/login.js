@@ -52,7 +52,10 @@ router.post('/',(req,res)=>{
                         res.send(err);
                     }else{
                         if(result){
-                            const token = jwt.sign({id : target.id}, secret)
+                            let permit = 'user';
+                            if(target.permit === 'laundry'){ permit = 'laundry'; }
+                            if(target.permit === 'master'){ permit = 'master'; }
+                            const token = jwt.sign({id : target.id,permit : permit}, secret)
                             res.cookie('X-auth-token',token);
                             res.redirect(Params.originApp)
                         }else{

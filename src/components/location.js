@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleMapReact  from 'google-map-react'
 import Styled from 'styled-components';
 import MenuBar from './menu'
+import Params from './params';
 
 let TrackCon  = Styled.div	`position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-around;background-color:rgba(0,0,0,0.5);
 															boder:1px solid #efefef;box-shadow:0px 0px 10px rgba(0,0,0,0.5);z-index:200;border-radius:6em;width:70%;max-width:26em;`;
@@ -68,8 +69,9 @@ class GeoLocation extends React.Component {
   constructor(){
 		super();
 		this.state = {
-			Date    : [],
-      Time    : ['10:00 AM - 12:00 PM','12:00 PM - 02:00 PM','02:00 PM - 04:00 PM','04:00 PM - 06:00 PM','06:00 AM - 08:00 PM','08:00 PM - 10:00 PM'],
+      Date    : [],
+      laundry : [],
+      Time    : ['10:00 AM - 12:00 PM','12:00 PM - 02:00 PM','02:00 PM - 04:00 PM','04:00 PM - 06:00 PM','06:00 PM - 08:00 PM','08:00 PM - 10:00 PM'],
       loclat  : 33.328109407837836,
       loclng  : 44.40894791680262,
       zoom    : 14,
@@ -86,7 +88,12 @@ class GeoLocation extends React.Component {
 		}
 	}
 	componentDidMount(){
-		this.getDate()
+    this.getDate()
+    this.getLaundries()
+  }
+  getLaundries(){
+    fetch(`${Params.originServer}/order/laundries/${this.getCookie('X-auth-token')}`)
+    .then(res=>res.json()).then(data=>this.setState({laundry:data}))
   }
 	getDate(){
 		let now = Date.now();
@@ -144,6 +151,21 @@ class GeoLocation extends React.Component {
                 ];
     return from[this.state.defaultForm];
   }
+  getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(window.document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
   changeForm(e){
     let index = this.state.defaultForm + parseInt(e.target.title);
     if(index > 3){ index = 3 }
@@ -162,7 +184,35 @@ class GeoLocation extends React.Component {
       this.setState({defaultForm : 2 ,headerIcon : [1,1,1]});
 
     }
-    if(index === 3){ window.location = '/final' }
+    if(index === 3){ 
+      let dataObj ={
+        clothes         : localStorage.getItem('clothes'),
+        pickupTime      : localStorage.getItem('pickupTime'),
+        pickupDate      : localStorage.getItem('pickupDate'),
+        pickupLoc       : localStorage.getItem('pickupLoc'),
+        pickupAddress   : localStorage.getItem('pickupAddress'),
+        deliveryTime    : localStorage.getItem('deliveryTime'),
+        deliveryDate    : localStorage.getItem('deliveryDate'),
+        deliveryLoc     : localStorage.getItem('deliveryLoc'),
+        deliveryAddress : localStorage.getItem('deliveryAddress'),
+        token           : this.getCookie('X-auth-token')
+      }
+      let form = document.createElement("form");
+      form.setAttribute("method", "post");
+      form.setAttribute("action", `${Params.originServer}/order/neworder`);
+      for(var key in dataObj) {
+          if(dataObj.hasOwnProperty(key)) {
+              var hiddenField = document.createElement("input");
+              hiddenField.setAttribute("type", "hidden");
+              hiddenField.setAttribute("name", key);
+              hiddenField.setAttribute("value", dataObj[key]);
+              form.appendChild(hiddenField);
+          }
+      }
+      document.body.appendChild(form);
+      localStorage.clear();
+      form.submit();
+    }
   }
   getGeoLocation(e){
     if (navigator.geolocation) {
@@ -174,6 +224,14 @@ class GeoLocation extends React.Component {
     } else { 
       alert("Geolocation is not supported by this browser.");
     }
+  }
+  mapdata(){
+    if(this.state.defaultForm === 0){ return <AnyReactComponent lat={this.state.loclat} lng={this.state.loclng} /> }
+    if(this.state.defaultForm === 1){ return <AnyReactComponent lat={this.state.loclat} lng={this.state.loclng} /> }
+    if(this.state.defaultForm === 2){ this.state.laundry.map((laundry,i)=>{
+      console.log(laundry.location.latitude)
+      return <AnyReactComponent key={i} lat={laundry.location.latitude} lng={laundry.location.longitude} />
+    }) }
   }
   render() {
 		return (
@@ -198,7 +256,7 @@ class GeoLocation extends React.Component {
 						defaultZoom={this.state.zoom}
 						onClick={({x, y, lat, lng, event})=>this.setGeoLocation(x, y, lat, lng, event)}
 					>
-						<AnyReactComponent lat={this.state.loclat} lng={this.state.loclng} />
+						{this.mapdata()}
 					</GoogleMapReact>
 				</div>
 			</React.Fragment>

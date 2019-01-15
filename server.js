@@ -7,6 +7,7 @@ const firebase      = require('firebase');
 const withPermit    = require('./middleware/permit');
 const registerRoute = require('./route/register');
 const loginRoute    = require('./route/login');
+const orderRoute    = require('./route/order');
 const app           = express();
 
 const secret = 'washapp123';
@@ -36,6 +37,7 @@ app.get('/', function (req, res) { res.sendFile(path.join(__dirname, 'public', '
 
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
+app.use('/order', orderRoute);
 
 app.get('/checkPermit/:token', withPermit, function(req, res) {  });
 app.get('/checkPermit/', function(req, res) { 
