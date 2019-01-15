@@ -29,6 +29,8 @@ let Price       = Styled.span `font-family: 'Noto Sans', sans-serif;font-size:0.
 let Button      = Styled.img  `width:2em;cursor:pointer;`;
 let ClothNum    = Styled.span `font-family: 'Noto Sans', sans-serif;font-size:1.4em;width:1.6em;text-align:center;`;
 
+let Next        = Styled.img  `width:3.8em;opacity:1;margin:0.6em;right:0;position:absolute;margin-top:-5em`
+
 class Selection extends React.Component {
   constructor(){
     super();
@@ -128,9 +130,15 @@ class Selection extends React.Component {
     let orderData   = this.state.orderData;
     let price       = 0;
     let quantity    = 0;
+    let clothes     = [];
     orderData.map((header)=>{
       header.data.Quantity.map((quan,i)=>{
+        let Obj = {};
         if(quan > 0){
+          Obj.itemName  = header.data.Name[i];
+          Obj.itemQuan  = header.data.Quantity[i];
+          Obj.itemPrice = header.data.Price[i];
+          clothes.push(Obj);
           quantity = quantity + quan;
           price    = parseInt(price) + parseInt(header.data.Price[i]) * parseInt(quan)
         }
@@ -138,6 +146,7 @@ class Selection extends React.Component {
       })
       return true;
     })
+    localStorage.setItem('clothes',JSON.stringify(clothes))
     let orderquan  = ' item';
     if(quantity > 1){ orderquan = ' items'; }
     orderquan      = quantity + orderquan;
@@ -164,13 +173,19 @@ class Selection extends React.Component {
     this.setState({orderData : orderData});
     this.calcPrice();
   }
-
+  forwardNext(){
+    if(localStorage.clothes){
+      if(localStorage.clothes.length > 2){ window.location = '/location'; }
+      else{ alert('select at least one item !!!') }
+    }else{alert('select at least one item !!!')}
+  }
   render() {
     return (
       <BodyBackground context={
         <React.Fragment>
         <TotalPrice>
           <div>
+          <Next src={require('../assets/icons/nextarrow.svg')} alt='next icon' onClick={this.forwardNext.bind(this)}/>
             <PriceDiv>Your Basket</PriceDiv><br/>
             <TotalItem id='TotalQuantity'>Quantity : {this.state.orderQuan}</TotalItem>
           </div>

@@ -66,9 +66,10 @@ router.post('/',(req,res)=>{
                 newUser.email    = req.body.email;
                 newUser.password = hash;
                 newUser.id       = Id;
+                newUser.permit   = 'user';
                 Obj[Id] = newUser;
                 firebase.firestore().collection('wash').doc('users').update(Obj);
-                const token = jwt.sign({id : Id}, secret)
+                const token = jwt.sign({id : Id,permit : 'user'}, secret)
                 res.cookie('X-auth-token',token);
                 // res.setHeader('X-auth-token',token);
                 // console.log(token)

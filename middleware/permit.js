@@ -29,7 +29,7 @@ const withPermit = function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.setHeader('content-type', 'application/json');
   let tooken = req.params.token;
-  console.log(tooken)
+  // console.log(tooken)
   if (!tooken) {
     res.send('{"authorized": "No token provided"}');
   } else {
@@ -40,7 +40,11 @@ const withPermit = function(req, res, next) {
         firebase.firestore().collection('wash').doc('users').get().then(doc => {
             let data = doc.data();
             let target = getObjects(data, 'id', result.id);
-            if(target.length === 1) { res.send('{"authorized": "valid token"}') }
+            if(target.length === 1) { 
+              target = target[0];
+              if(result.permit === target.permit){ res.send('{"authorized": "valid token"}')  }
+              else{ res.send('{"authorized": "Invalid token"}') }
+            }
             else{ res.send('{"authorized": "Invalid token"}') }
         })
         next();
