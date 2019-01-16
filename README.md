@@ -52,7 +52,10 @@ http://<your_ip>:3000
 ```
 
 ### Review
-
+- as master permit login with email : engr.laith@gmail.com
+- as laundry permit login with email : blackeagle@gmail.com
+- as user permit login with email : johanedoe@gmail.com
+password for all is 123456789
 
 
 ### Scripting
