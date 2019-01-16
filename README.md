@@ -55,15 +55,14 @@ http://<your_ip>:3000
 - as master permit login with email : engr.laith@gmail.com
 - as laundry permit login with email : blackeagle@gmail.com
 - as user permit login with email : mustafatalib@gmail.com
+
 password for all is 123456789
 
 
 ### Scripting
 - Wash App UI : @Hussein @Duha @Laith @Ahmed @Noor
 - Wash App Dashboard : @Laith
-<<<<<<< HEAD
 - Wash App API : @Laith
-=======
 - Wash App API : @Laith
 
 ### Missing
