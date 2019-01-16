@@ -40,7 +40,7 @@ router.get('/:token',(req,res)=>{
         let laundries = getObjects(data, 'permit', 'laundry');
         let feed = [];
         laundries.map((laundry)=>{
-          feed.push(JSON.parse(`{"brandname": "${laundry.brandname}","location":{"latitude":"${laundry.location.latitude}","longitude":"${laundry.location.longitude}"},"laundryId":"${laundry.id}"}`))
+          feed.push(JSON.parse(`{"brandname": "${laundry.username}","location":{"latitude":"${laundry.location.latitude}","longitude":"${laundry.location.longitude}"},"laundryId":"${laundry.id}"}`))
         })
         res.send(feed);
       })

@@ -44,8 +44,4 @@ npm run server
 ### Scripting
 - Wash App UI : @Hussein @Duha @Laith @Ahmed @Noor
 - Wash App Dashboard : @Laith
-<<<<<<< HEAD
 - Wash App API : @Laith
-=======
-- Wash App API : @Laith
->>>>>>> f2d652bbdecc2dbe5e20a8b3f1056fa70eb8b02a

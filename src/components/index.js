@@ -12,6 +12,7 @@ let LoginBut  = Styled.div `width:80%;max-width:20em;text-align:center;padding:0
 let CreateBut = Styled.div `width:80%;max-width:20em;text-align:center;padding:0.6em 0em;background-color:white;font-family: 'Noto Sans', sans-serif;
                             border-radius:1.2em;cursor:pointer;border:1px solid black;margin-top:1.4em;font-weight:bold;color:black;`;
 let Link      = Styled.a `text-decoration:none;`;
+
 class Indexpage extends React.Component {
   render() {
     return (

@@ -7,10 +7,10 @@ let AddIcon    = Styled.img   `width:4em;margin-bottom:1em;`
 let InputField = Styled.input `width:calc(100% - 2em);max-width:24em;padding:0.4em 1em;backgroundcolor:#151d20;border:1px solid #0078ff;border-radius:4px;
                                 font-size:1.1em;font-family: 'Noto Sans', sans-serif;margin-bottom:0.8em;outline:none;`
 let TextSpan   = Styled.span  `font-size:1.3em;font-family: 'Noto Sans', sans-serif;color:white;`;
-let PlaceHold  = Styled.img  `width:4em;transform: translate(-50%,-100%);`;
-let Submit     = Styled.span `color:white;padding:1em 2.4em;font-size:1em;font-family: 'Noto Sans', sans-serif;background-color:#0078ff;
+let PlaceHold  = Styled.img   `width:4em;transform: translate(-50%,-100%);`;
+let Submit     = Styled.span  `color:white;padding:1em 2.4em;font-size:1em;font-family: 'Noto Sans', sans-serif;background-color:#0078ff;
                                 white-space:nowrap;margin:2em 0;border-radius:4px;cursor:pointer;float:right;`
-let ErrorSpan  = Styled.span `color:red;font-family: 'Noto Sans', sans-serif;font-size:12px;`
+let ErrorSpan  = Styled.span  `color:red;font-family: 'Noto Sans', sans-serif;font-size:12px;`
 
 const AnyReactComponent = () => <PlaceHold src={require('../../assets/icons/placeholder.svg')} />;
 
@@ -110,8 +110,8 @@ class AddLaundry extends React.Component {
           <InputField type='text' placeholder='Email' name='email' defaultValue={this.state.email} onChange={this.setData.bind(this)}/><br/>
           <InputField type='password' placeholder='Password' name='password' defaultValue={this.state.password} onChange={this.setData.bind(this)}/><br/>
           <InputField type='password' placeholder='Confirm' name='repassword' defaultValue={this.state.repassword} onChange={this.setData.bind(this)}/><br/>
-          <InputField type='text' name='latitude'  defaultValue={this.state.latitude}  style={{display:'none'}}/>
-          <InputField type='text' name='longitude' defaultValue={this.state.longitude} style={{display:'none'}}/>
+          <InputField type='hidden' name='latitude'  defaultValue={this.state.latitude} />
+          <InputField type='hidden' name='longitude' defaultValue={this.state.longitude}/>
           <TextSpan>Location :</TextSpan>
           <div style={{ height: '20em', width: '100%' }}>
             <GoogleMapReact
