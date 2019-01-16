@@ -35,6 +35,8 @@ then get wi-fi ip address
 open this files bellow and set new ip address into each file object
 - ./src/components/params.js
 - ./route/params.json
+
+
 open two cmd and type this command in first cmd
 ```
 npm i
@@ -43,6 +45,10 @@ npm start
 then open second cmd and type this command
 ```
 npm run server
+```
+open your browser and request this url
+```
+http://<your_ip>:3000
 ```
 
 ### Review
