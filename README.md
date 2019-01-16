@@ -27,6 +27,16 @@ this app is build by :
 
 
 ### Runing
+first thing open cmd and type
+```
+ipconfig
+```
+then get wi-fi ip address
+open this files bellow and set new ip address into each file object
+- ./src/components/params.js
+- ./route/params.json
+
+
 open two cmd and type this command in first cmd
 ```
 npm i
@@ -36,6 +46,10 @@ then open second cmd and type this command
 ```
 npm run server
 ```
+open your browser and request this url
+```
+http://<your_ip>:3000
+```
 
 ### Review
 
@@ -44,4 +58,15 @@ npm run server
 ### Scripting
 - Wash App UI : @Hussein @Duha @Laith @Ahmed @Noor
 - Wash App Dashboard : @Laith
+<<<<<<< HEAD
 - Wash App API : @Laith
+=======
+- Wash App API : @Laith
+
+### Missing
+- account varification for new account
+- set new password UI and fuctionality for forgetten password cases
+- home page enclude UI and fuctionality
+- notification enclude UI and fuctionality
+... etc
+>>>>>>> 0f020fcc4e839995067921f6db44d33b0759017d
