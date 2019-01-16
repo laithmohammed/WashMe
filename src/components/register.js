@@ -7,11 +7,10 @@ import BodyBackground from './background'
 
 let ImgLogo   = Styled.img `height:10em;position:absolute;top:-6.8em;left:50%;transform:translate(-50%);cursor:pointer;`;
 let Container = Styled.div `top:50%;left:50%;transform:translate(-50%,-50%);position:absolute;width:90%;max-width:30em;`
-let Form  = Styled.form `width:auto;padding:3em 2em;box-shadow:0px 0px 10px rgba(0,0,0,0.3);border-radius:0.3em;background:white;`
-let Span = Styled.span `font-size:1em;font-family: 'Noto Sans', sans-serif;`;
+let Form      = Styled.form `width:auto;padding:3em 2em;box-shadow:0px 0px 10px rgba(0,0,0,0.3);border-radius:0.3em;background:white;`
+let Span      = Styled.span `font-size:1em;font-family: 'Noto Sans', sans-serif;`;
 let InputText = Styled.input `width:96%;font-size:1.3em;border:unset;outline:none;border-bottom:2px solid #13a89e;padding:0px 2%;margin-bottom:0.6em;display:block;font-family: 'Noto Sans', sans-serif;test-decoration:none;
-                              &:hover { border-bottom:2px solid #25aae1; }
-`;
+                              &:hover { border-bottom:2px solid #25aae1; }`;
 let InputSubmit = Styled.input `display:none;`;
 let ImgButton = Styled.img `width:5em;position:absolute;bottom:-2.5em;left:50%;transform:translate(-50%);cursor:pointer;`;
 let TextCon   = Styled.div `width:100%;text-align:center;position:absolute;bottom:-5em;`;
@@ -43,7 +42,6 @@ class Login extends React.Component {
       error      : []
     }
   }
-
   setData(e){
     switch (e.target.name) {
       case 'username'  : this.setState({username   : e.target.value});this.fetchData('checkUniqUsername',e.target.value,0);break;
@@ -95,7 +93,6 @@ class Login extends React.Component {
     if(this.state.password !== this.state.repassword) {if(this.state.error.indexOf(5) === -1){this.pushError(5)}; }else{ permitKey++;this.removeError(5); }
     if(permitKey !== 6){ e.preventDefault(); }
   }
-
   render() {
     return (
       <React.Fragment>

@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuBar from './menu'
-//'linear-gradient(#f13844,#e1212e)','linear-gradient(#4d90fd,#4788ee)','linear-gradient(#3be081,#4bca6f)'
+
 const Styled = {
     Body : { position:'absolute',width:'100%',top:'0px',left:'0px',right:'0px',bottom:'0px',padding:'0px',margin:'0px' },
     Background : { width:'100%',height:'100%',top:'0px',left:'0px',right:'0px',bottom:'0px',padding:'0px',margin:'0px',position:'relative',overflow:'hidden' }
@@ -13,7 +13,6 @@ class BackGround extends React.Component {
       background: []
     }
   }
-
   componentWillMount(){
       this.randomCircle(window.innerWidth,window.innerHeight)
   }
@@ -28,7 +27,6 @@ class BackGround extends React.Component {
         Width    = Math.floor(Math.random() * maxWidth);
         Left     = Math.floor(Math.random() * maxLeft);
         Top      = Math.floor(Math.random() * maxTop);
-        // console.log(Math.floor(Math.random() * 1))
         color    = colors[Math.floor(Math.random() * 3)]
         circle = this.state.background;
         circle.push(<div key={x} style={{width:Width,height:Width,borderRadius:'50%',background:color,position:'absolute',top:Top,left:Left,opacity:0.7}}></div>)   
@@ -36,7 +34,6 @@ class BackGround extends React.Component {
     }while(x < 20)
     this.setState({background : circle})
   }
-
   render() {
     return (
       <React.Fragment>
@@ -49,5 +46,4 @@ class BackGround extends React.Component {
     );
   }
 }
-
 export default BackGround;

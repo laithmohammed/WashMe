@@ -51,11 +51,11 @@ app.get('/logout/', function(req, res) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.setHeader('content-type', 'application/json');
-  res.status(401).send('Unauthorized: Log out');
+  res.status(401).send('{"Unauthorized": "Log out"}');
 });
-app.post('/check', function(req, res) { 
-  res.h
-});
+// app.post('/check', function(req, res) { 
+//   res.h
+// });
 
 app.listen(5678);
 // app.listen(process.env.PORT || 8080);

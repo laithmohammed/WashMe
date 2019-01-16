@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import withPermit from './withPermit';
+// function that import from './withPermit' for check that user have been login before pass to target page
+// withPermit finction for pages that required user account
 import withoutLog from './withoutLog';
+// function that import from './withoutLog' for check that user have not login before pass to target page
+// withoutLog finction for pages that not required user account
 import indexpage from './indexpage';
+// function that import from './indexpage' return selection clothes page if we have login user account or welcome page if not
 import Login from './components/login';
 import Register from './components/register';
 import Startup from './components/startup';
@@ -11,6 +16,9 @@ import GeoLocation from './components/location';
 import Dashboard from './components/dashboard/index';
 import Final from './components/final';
 
+
+// main class for this front end application
+// this class will render at ./index.js
 class App extends Component {
   render() {
     return (
@@ -22,7 +30,7 @@ class App extends Component {
           <Route path='/startup' component={withPermit(Startup)}/>
           <Route path='/selection' component={withPermit(Selection)}/>
           <Route path='/location' component={withPermit(GeoLocation)}/>
-          <Route path='/dashboard' component={Dashboard}/>
+          <Route path='/dashboard' component={withPermit(Dashboard)}/>
           <Route path='/final' component={withPermit(Final)}/>
         </React.Fragment>
       </Router>

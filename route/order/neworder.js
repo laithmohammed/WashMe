@@ -67,6 +67,8 @@ router.post('/',(req,res)=>{
                             firebase.firestore().collection('wash').doc('users').get().then(doc => {
                                     let data = doc.data();
                                     let target = getObjects(data, 'id', result.id);
+                                    let laundryBrandname = getObjects(data, 'username', req.body.laundryName);
+                                    if(laundryBrandname.length !== 1){ errors.push('laundry name is not valid') }else{ laundryBrandname = laundryBrandname[0] }
                                     if(target.length === 1 && errors.length === 0) {
                                         let orderObj = {};
                                         firebase.firestore().collection('wash').doc('orders').get().then(doc => {
@@ -82,8 +84,8 @@ router.post('/',(req,res)=>{
                                             orderObj.userId   			 	 = result.id;
                                             orderObj.username          = target[0].username;
                                             orderObj.orderDate 				 = Date.now();
-                                            orderObj.laundryId 				 = '';
-                                            orderObj.brandname         = 'unset';
+                                            orderObj.laundryId 	         = laundryBrandname.id;
+                                            orderObj.brandname           = laundryBrandname.brandname;
                                             orderObj.pickupTime      	 = req.body.pickupTime;  
                                             orderObj.pickupDate      	 = JSON.parse(req.body.pickupDate);               
                                             orderObj.pickupLoc       	 = JSON.parse(req.body.pickupLoc);              
@@ -124,6 +126,7 @@ function Validating(data,target) {
         'deliveryDate'    : Joi.string().required().label('delivery date'),
         'deliveryLoc'     : Joi.string().required().label('delivery location'),
         'deliveryAddress' : Joi.string().required().label('delivery address'),
+        'laundryName'     : Joi.string().required().regex(/^[a-z0-9]{3,40}$/).label('laundry brand name'),
         'token'           : Joi.string().required().label('token')
         }
         const cloth     = {
