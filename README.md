@@ -27,6 +27,14 @@ this app is build by :
 
 
 ### Runing
+first thing open cmd and type
+```
+ipconfig
+```
+then get wi-fi ip address
+open this files bellow and set new ip address into each file object
+- ./src/components/params.js
+- ./route/params.json
 open two cmd and type this command in first cmd
 ```
 npm i
