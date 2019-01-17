@@ -7,6 +7,9 @@
 this app is build by :
 - **React** : a javascript library for building user interfaces / front end
 - **Express** : a node.js framework / back end
+### Demo
+[https://wash-app-client.herokuapp.com/](https://wash-app-client.herokuapp.com/).
+
 
 ### Node packages
 - [bcrypt](https://www.npmjs.com/package/bcrypt/).
